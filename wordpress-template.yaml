@@ -51,21 +51,23 @@ parameters:
 
   - name: DATABASE_HOST
     description: Database host
+    value: mariadb
     required: true
 
   - name: DATABASE_NAME
     description: Database name
-    value: wordpress
+    value: foxfennecs
     required: true
 
   - name: DATABASE_USER
     description: Database user name
-    value: wordpress
+    value: root
     required: true
 
   - name: DATABASE_PASSWORD
     description: Database user password
     generate: expression
+    value: passmein
     from: "[a-zA-Z0-9]{16}"
 
 
@@ -133,7 +135,7 @@ objects:
           from:
             kind: ImageStreamTag
             namespace: openshift
-            name: php:5.6
+            name: php:7.4
       output:
         to:
           kind: ImageStreamTag
